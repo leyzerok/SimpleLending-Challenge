@@ -33,7 +33,7 @@ contract AaveLenderTest is Test {
         // The staker should be able to unstake what was originally staked plus a little extra reward
         uint totalATokenBalance = IERC20(daiATokenAddress).balanceOf(DAI_HOLDER);
         IERC20(daiATokenAddress).approve(address(aaveLender), totalATokenBalance);
-        aaveLender.withdraw(totalATokenBalance);
+        aaveLender.unstake(totalATokenBalance);
         vm.stopPrank();
 
         // The owner should be able to earn some DAI during the process, so his balance now should be greater than the balance at the beginning of this test
